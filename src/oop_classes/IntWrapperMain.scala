@@ -14,6 +14,7 @@ object IntWrapperMain {
     // one and two have different internal states
     println(one.x)
     println(two.x)
+
   }
 
 }
