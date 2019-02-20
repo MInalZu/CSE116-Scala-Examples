@@ -5,9 +5,9 @@ import physics._
 abstract class InanimateObject(location: PhysicsVector, velocity: PhysicsVector)
   extends PhysicalObject(location, velocity) {
 
-  abstract def objectMass(): Double
+  def objectMass(): Double
 
-  abstract def use(player: Player): Unit
+  def use(player: Player): Unit
 
   def magnitudeOfMomentum(): Unit = {
     val magnitudeOfVelocity = Math.sqrt(

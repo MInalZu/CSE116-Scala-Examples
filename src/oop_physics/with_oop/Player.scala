@@ -10,11 +10,8 @@ class Player(val location: PhysicsVector,
 
   var health: Int = maxHealth
 
-  def useBall(ball: Ball): Unit = {
-    ball.use(this)
+  def useItem(item: InanimateObject): Unit = {
+    item.use(this)
   }
 
-  def useHealthPotion(potion: HealthPotion): Unit = {
-    potion.use(this)
-  }
 }
