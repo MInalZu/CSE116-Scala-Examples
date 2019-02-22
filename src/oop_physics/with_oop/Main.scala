@@ -45,8 +45,9 @@ println(potion1 == potion3)
   }
 
   def main(args: Array[String]): Unit = {
-    polymorphismExample()
-    overrideExample()
+//    polymorphismExample()
+//    overrideExample()
+//    println(scala.io.Source.fromURL("http://api.open-notify.org/iss-now.json").mkString)
   }
 
 
