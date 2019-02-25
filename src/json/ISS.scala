@@ -11,13 +11,13 @@ object ISS {
 
     val response: String = Http(url).asString.body
 
-    val parsed = Json.parse(response)
+    val parsed: JsValue = Json.parse(response)
 
     // unused values, but this is how we would extract message and timestamp
     val message: String = (parsed \ "message").as[String]
     val timestamp: Long = (parsed \ "timestamp").as[Long]
 
-    val issLocation = (parsed \ "iss_position").as[Map[String, String]]
+    val issLocation: Map[String, String] = (parsed \ "iss_position").as[Map[String, String]]
 
     val lat: Double = issLocation.getOrElse("latitude", "0.0").toDouble
     val lon: Double = issLocation.getOrElse("longitude", "0.0").toDouble
@@ -52,6 +52,7 @@ object ISS {
     val location: Location = new Location(-36.5017, -2.8015)
     val issJSON: String = createJSON("success", 1550774961, location)
 
+    println(issJSON)
   }
 
 }

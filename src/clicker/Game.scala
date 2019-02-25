@@ -22,15 +22,6 @@ class Game {
   }
 
 
-  def toJSON(): String = {
-    ""
-  }
-
-
-  def fromJSON(jsonGameState: String): Unit = {
-  }
-
-
   def clickGold(): Unit = {
 
   }
@@ -44,6 +35,15 @@ class Game {
     */
   def update(time: Long): Unit = {
 
+  }
+
+
+  def toJSON(): String = {
+    ""
+  }
+
+
+  def fromJSON(jsonGameState: String): Unit = {
   }
 
 
