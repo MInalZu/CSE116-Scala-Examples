@@ -10,8 +10,8 @@ import scalafx.scene.{Group, Scene}
 
 object GUI2D extends JFXApp {
 
-  val windowWidth: Double = 600
-  val windowHeight: Double = 400
+  val windowWidth: Double = 800
+  val windowHeight: Double = 600
   val playerCircleRadius:Double = 20
   val playerSpeed: Double = 10
 
@@ -56,7 +56,8 @@ object GUI2D extends JFXApp {
 
   this.stage = new PrimaryStage {
     this.title = "2D Graphics"
-    this.scene = new Scene(sceneGraphics, windowWidth, windowWidth) {
+    scene = new Scene(windowWidth, windowHeight) {
+      content = List(sceneGraphics)
 
       // add an EventHandler[KeyEvent] to control player movement
       addEventHandler(KeyEvent.KEY_PRESSED, (event: KeyEvent) => keyPressed(event.getCode))
