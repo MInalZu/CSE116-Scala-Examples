@@ -1,5 +1,6 @@
 package gui
 
+import javafx.event.ActionEvent
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
 import scalafx.scene.Scene
@@ -19,10 +20,9 @@ object SampleGUI extends JFXApp {
   }
 
   def buttonPressed(): Unit = {
-    println(inputDisplay.text.value)
     val fahrenheit: Double = inputDisplay.text.value.toDouble
     val celsius = (fahrenheit - 32.0) * 5.0 / 9.0
-    outputDisplay.text = f"$celsius%1.2f"
+    outputDisplay.text.value = f"$celsius%1.2f"
   }
 
   val button: Button = new Button {
@@ -30,7 +30,15 @@ object SampleGUI extends JFXApp {
     minHeight = 100
     style = "-fx-font: 28 ariel;"
     text = "F to C"
-    onAction = event => buttonPressed()
+    onAction = (event: ActionEvent) => buttonPressed()
+  }
+
+  val alternateButton: Button = new Button {
+    minWidth = 100
+    minHeight = 100
+    style = "-fx-font: 28 ariel;"
+    text = "F to C"
+    onAction = new ButtonListener(inputDisplay, outputDisplay)
   }
 
   this.stage = new PrimaryStage {
@@ -38,7 +46,7 @@ object SampleGUI extends JFXApp {
     scene = new Scene() {
       content = List(
         new VBox() {
-          children = List(inputDisplay, button, outputDisplay)
+          children = List(inputDisplay, alternateButton, outputDisplay)
         }
       )
     }

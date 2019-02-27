@@ -22,7 +22,7 @@ class TestComputeSize extends FunSuite {
     val mediumDoubleLowerBound: Double = 30.0
     val smallDouble: Double = 29.99
 
-    assert(Conditional.computeSize(largeDouble) == "large", largeDouble)
+    assert(Conditional.computeSize(largeDouble) === "large", largeDouble)
     assert(Conditional.computeSize(mediumDoubleUpperBound) == "medium", mediumDoubleUpperBound)
     assert(Conditional.computeSize(mediumDoubleLowerBound) == "medium", mediumDoubleLowerBound)
     assert(Conditional.computeSize(smallDouble) == "small", smallDouble)
