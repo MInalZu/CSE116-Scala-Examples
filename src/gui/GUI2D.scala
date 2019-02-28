@@ -12,11 +12,14 @@ object GUI2D extends JFXApp {
 
   val windowWidth: Double = 800
   val windowHeight: Double = 600
+
   val playerCircleRadius:Double = 20
   val playerSpeed: Double = 10
 
-  var allRectangles: List[Shape] = List()
+  val rectangleWidth: Double = 60
+  val rectangleHeight: Double = 40
 
+  var allRectangles: List[Shape] = List()
   var sceneGraphics: Group = new Group {}
 
   val player: Circle = new Circle {
@@ -29,8 +32,6 @@ object GUI2D extends JFXApp {
 
 
   def drawRectangle(centerX: Double, centerY: Double): Unit = {
-    val rectangleWidth: Double = 60
-    val rectangleHeight: Double = 40
     val newRectangle = new Rectangle() {
       width = rectangleWidth
       height = rectangleHeight
