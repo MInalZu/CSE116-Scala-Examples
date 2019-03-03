@@ -12,11 +12,11 @@ class TestSample extends FunSuite {
     (d1 - d2).abs < EPSILON
   }
 
-  test("Sample testing for the calculator") {
+  test("Sample testing of the calculator") {
     val calculator: Calculator = new Calculator()
 
-    // since we don't need event information for this program setting the event to null
-    // to testing is fine. This let's us automate testing without using the GUI
+    // Since we don't need event information f0r (edit to avoid keyword) this program, setting the event to null
+    // to test is fine. This allows us to automate testing without using the GUI
     new NumberAction(calculator, 1).handle(null)
     new NumberAction(calculator, 2).handle(null)
 
