@@ -15,7 +15,7 @@ class Ball(override val location: PhysicsVector,
   }
 
   override def objectMass(): Double = {
-    0.0
+    this.mass
   }
 
 
