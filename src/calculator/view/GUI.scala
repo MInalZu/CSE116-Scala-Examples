@@ -55,10 +55,11 @@ object GUI extends JFXApp {
         }
       )
 
-      addEventHandler(MouseEvent.MOUSE_CLICKED, (event: MouseEvent) => {
-        textField.text.value = calculator.displayNumber().toString
-      })
-
     }
+
+    addEventFilter(MouseEvent.MOUSE_CLICKED, (event: MouseEvent) => {
+      textField.text.value = calculator.displayNumber().toString
+    })
+
   }
 }
