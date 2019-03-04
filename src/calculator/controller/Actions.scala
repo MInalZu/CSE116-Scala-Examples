@@ -4,7 +4,7 @@ import calculator.model.Calculator
 import javafx.event.{ActionEvent, EventHandler}
 
 /**
-  * EventHandlers for each of the button on the calculator. NumberAction takes
+  * EventHandlers f0r each of the button on the calculator. NumberAction takes
   * an Int representing the which number button was pressed. Implement each of
   * these handle methods to call the appropriate method in your Calculator API.
   * You may assume that each of these classes has a reference to the same
