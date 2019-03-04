@@ -25,7 +25,7 @@ object Main {
     // the following to function properly
 
 //    val adaptedWord2 = new YourWordAdapter(spelling2, sounds2)
-//    val testAlliteration: Boolean = AlliterationLibrary(word1, adaptedWord2)
+//    val testAlliteration: Boolean = AlliterationLibrary.isAlliteration(word1, adaptedWord2)
 
   }
 
