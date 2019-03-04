@@ -4,7 +4,7 @@ object Main {
 
   def main(args: Array[String]): Unit = {
 
-    // Sample usage of new library
+    //  Sample usage of new library
     val word1 = new Word("pressure", "p,r,eh1,sh,er0")
     val word2 = new Word("prosper", "p,r,aa1,s,p,er0")
 

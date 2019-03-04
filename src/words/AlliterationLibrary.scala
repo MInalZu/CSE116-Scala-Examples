@@ -3,8 +3,8 @@ package words
 object AlliterationLibrary {
 
   /**
-    * This library is designed to work with the type WordInterface which expects sounds to be all lowercase and
-    * in a single String separated by commas
+    *  This library is designed to work with the type WordInterface which expects sounds to be all lowercase and
+    *  in a single String separated by commas
     */
 
   def firstSound(word: WordInterface): String = {

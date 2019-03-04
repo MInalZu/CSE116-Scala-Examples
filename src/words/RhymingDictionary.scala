@@ -32,8 +32,8 @@ object RhymingDictionary {
           return true
         }
       }
-      p1 -= 1
-      p2 -= 1
+      p1 -=  1
+      p2 -=  1
     }
     false
   }
