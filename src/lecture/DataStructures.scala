@@ -1,5 +1,7 @@
 package lecture
 
+import physics.PhysicsVector
+
 object DataStructures {
 
   // return the maximum value that can be computed by multiplying two different elements from the input list
@@ -33,7 +35,8 @@ object DataStructures {
   }
 
   def main(args: Array[String]): Unit = {
-
+    println(Math.random())
+    new PhysicsVector(Math.random()-0.5, Math.random()-0.5, 0.0)
   }
 
 }
