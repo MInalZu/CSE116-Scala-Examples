@@ -2,7 +2,7 @@ package sorting
 
 import sorting.inheritance.{Animal, Cat, Dog}
 
-class SelectionSort {
+object SelectionSort {
 
   def intSelectionSort(inputData: List[Int], comparator: (Int, Int) => Boolean): List[Int] = {
 
@@ -67,9 +67,16 @@ class SelectionSort {
   }
 
 
+  def largeExample(): Unit ={
+    val numbers: List[Double] = (for(_ <- 0 to 2000) yield Math.random()).toList
+    selectionSort(numbers, (x: Double, y: Double) => x < y)
+    println(numbers)
+  }
+
   def main(args: Array[String]): Unit = {
     mySorting()
     myGenericSorting()
+    largeExample()
   }
 
 }
