@@ -66,16 +66,23 @@ object SelectionSort {
   }
 
 
-  def largeExample(): Unit = {
-    val numbers: List[Double] = (for (_ <- 0 to 2000) yield Math.random()).toList
-    selectionSort(numbers, (x: Double, y: Double) => x < y)
-    println(numbers)
+  def largeExample(n: Int): Unit = {
+
+    // Sort random doubles in the range -0.5 - 0.5 by absolute value
+    val numbers: List[Double] = (for (_ <- 0 to n) yield Math.random() - 0.5).toList
+
+    val start = System.nanoTime()
+    val sortedNumbers = selectionSort(numbers, (x: Double, y: Double) => x.abs > y.abs)
+    val totalTime = (System.nanoTime() - start) / 1000000.0
+
+    sortedNumbers.foreach(println)
+    println(f"\nSorting took $totalTime%1.2f ms")
   }
 
   def main(args: Array[String]): Unit = {
     intSortingExample()
     genericSortingExample()
-    largeExample()
+    largeExample(2000)
   }
 
 }
