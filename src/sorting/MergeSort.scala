@@ -13,7 +13,7 @@ def mergeSort[T](inputData: List[T], comparator: (T, T) => Boolean): List[T] = {
     val leftSorted = mergeSort(left, comparator)
     val rightSorted = mergeSort(right, comparator)
 
-    merge(leftSorted, rightSorted, comparator)
+    foreshadowMerge(leftSorted, rightSorted, comparator)
   }
 }
 
@@ -65,7 +65,19 @@ def merge[T](left: List[T], right: List[T], comparator: (T, T) => Boolean): List
       var leftVal = leftIter.next
       var rightVal = rightIter.next
 
+      var leftUpdated = false
+      var rightUpdated = false
+
       while (leftIter.hasNext || rightIter.hasNext) {
+
+        if(leftUpdated){
+          leftVal = leftIter.next
+          leftUpdated = false
+        }
+        if(rightUpdated){
+          rightVal = rightIter.next
+          rightUpdated = false
+        }
 
         if (comparator(leftVal, rightVal)) {
           sortedList += leftVal
@@ -73,7 +85,7 @@ def merge[T](left: List[T], right: List[T], comparator: (T, T) => Boolean): List
             sortedList += rightVal
             sortedList ++= rightIter
           } else {
-            leftVal = leftIter.next()
+            leftUpdated = true
           }
         } else {
           sortedList += rightVal
@@ -81,7 +93,7 @@ def merge[T](left: List[T], right: List[T], comparator: (T, T) => Boolean): List
             sortedList += leftVal
             sortedList ++= leftIter
           } else {
-            rightVal = rightIter.next()
+            rightUpdated = true
           }
         }
       }
