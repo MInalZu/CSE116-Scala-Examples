@@ -1,0 +1,6 @@
+package genetics
+
+object GeneticAlgorithm {
+
+
+}

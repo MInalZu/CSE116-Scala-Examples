@@ -27,7 +27,7 @@ object CustomSorting {
   }
 
   def main(args: Array[String]): Unit = {
-    example(100)
+    example(10)
   }
 
 }
