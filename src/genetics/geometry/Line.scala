@@ -2,8 +2,8 @@ package genetics.geometry
 
 class Line(val slope: Double, val yIntercept: Double) {
 
-  def evaluate(y: Double): Double = {
-    slope * y + yIntercept
+  def evaluate(x: Double): Double = {
+    slope * x + yIntercept
   }
 
   override def toString: String = {

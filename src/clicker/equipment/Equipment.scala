@@ -19,6 +19,7 @@ abstract class Equipment {
   }
 
   def buy(): Unit = {
+    println("buy called from " + this.name)
   }
 
 }

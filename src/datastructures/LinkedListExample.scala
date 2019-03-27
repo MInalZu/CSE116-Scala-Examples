@@ -1,5 +1,7 @@
 package datastructures
 
+import clicker.equipment.{Equipment, Excavators, GoldMines, Shovels}
+
 object LinkedListExample {
 
   def main(args: Array[String]): Unit = {
@@ -11,6 +13,39 @@ object LinkedListExample {
 
     // prints 1
     println(myList.next.next.value)
+
+
+
+    /* start algos */
+
+    myList = myList.prepend(10)
+    myList = myList.prepend(11)
+    myList = myList.prepend(12)
+
+    println(myList)
+
+
+    println(myList.apply(4).value)
+    println(myList.find(5).value)
+    println(myList.findIterative(5).value)
+
+
+    val squareFunction = (x: Int) => x * x
+    val newList = myList.map(squareFunction)
+    println(newList)
+
+
+    equipmentExample()
   }
 
+
+  def equipmentExample(): Unit  = {
+    var equipmentList = new LinkedListNode[Equipment](new GoldMines(), null)
+    equipmentList = equipmentList.prepend(new Excavators())
+    equipmentList = equipmentList.prepend(new Shovels())
+
+    val toCall = (equipment: Equipment) => equipment.buy()
+
+//    equipmentList.foreach(toCall)
+  }
 }
