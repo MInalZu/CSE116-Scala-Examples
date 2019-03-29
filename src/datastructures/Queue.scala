@@ -18,6 +18,9 @@ class Queue[A] {
   def dequeue(): A = {
     val toReturn = this.front.value
     this.front = this.front.next
+    if(this.front == null){
+      this.back = null
+    }
     toReturn
   }
 
