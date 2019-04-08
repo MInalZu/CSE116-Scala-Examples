@@ -24,7 +24,7 @@ class Counter(name: String) extends Actor {
 }
 
 
-object PingPongTest extends App {
+object CounterTest extends App {
   val system = ActorSystem("CountingSystem")
 
   val one = system.actorOf(Props(classOf[Counter], "1"))
