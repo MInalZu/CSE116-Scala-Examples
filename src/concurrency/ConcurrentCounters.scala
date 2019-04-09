@@ -3,15 +3,13 @@ package concurrency
 
 import akka.actor._
 
-import scala.concurrent.duration._
 
+case class Start
+case class Update
 
-case object Start
-case object Update
-
-case object IsDone
-case object Done
-case object NotDone
+case class IsDone
+case class Done
+case class NotDone
 
 
 class Counter(name: String) extends Actor {
