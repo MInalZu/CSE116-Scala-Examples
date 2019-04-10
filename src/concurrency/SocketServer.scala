@@ -38,13 +38,16 @@ class SocketServer extends Actor {
 }
 
 
-object StartServer extends App {
-  val actorSystem = ActorSystem()
+object SocketServer{
 
-  import scala.concurrent.duration._
-  import actorSystem.dispatcher
+  def main(args: Array[String]): Unit = {
+    val actorSystem = ActorSystem()
 
-  val server = actorSystem.actorOf(Props(classOf[SocketServer]))
+    import scala.concurrent.duration._
+    import actorSystem.dispatcher
 
-  actorSystem.scheduler.schedule(0 milliseconds, 2000 milliseconds, server, SendToClients("Ping from server"))
+    val server = actorSystem.actorOf(Props(classOf[SocketServer]))
+
+    actorSystem.scheduler.schedule(0 milliseconds, 2000 milliseconds, server, SendToClients("Ping from server"))
+  }
 }

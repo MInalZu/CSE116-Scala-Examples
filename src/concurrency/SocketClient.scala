@@ -36,7 +36,7 @@ class SocketClient(remote: InetSocketAddress) extends Actor {
 }
 
 
-object StartClient {
+object SocketClient {
 
   def main(args: Array[String]): Unit = {
 

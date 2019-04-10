@@ -5,11 +5,13 @@ import akka.actor._
 import scala.concurrent.duration._
 
 case class Start()
+
 case class Update()
 
 case class IsDone()
 
 case class Done()
+
 case class NotDone()
 
 
@@ -66,20 +68,23 @@ class Supervisor(counters: List[ActorRef]) extends Actor {
 }
 
 
-object CounterTest extends App {
-  val system = ActorSystem("CountingSystem")
+object CounterTest {
+  def main(args: Array[String]): Unit = {
 
-  import system.dispatcher
+    val system = ActorSystem("CountingSystem")
 
-  val one = system.actorOf(Props(classOf[Counter], "1"))
-  val two = system.actorOf(Props(classOf[Counter], "2"))
-  val three = system.actorOf(Props(classOf[Counter], "3"))
+    import system.dispatcher
 
-  val supervisor = system.actorOf(Props(classOf[Supervisor], List(one, two, three)))
+    val one = system.actorOf(Props(classOf[Counter], "1"))
+    val two = system.actorOf(Props(classOf[Counter], "2"))
+    val three = system.actorOf(Props(classOf[Counter], "3"))
 
-  one ! Start
-  two ! Start
-  three ! Start
+    val supervisor = system.actorOf(Props(classOf[Supervisor], List(one, two, three)))
 
-  system.scheduler.schedule(0 milliseconds, 500 milliseconds, supervisor, Update)
+    one ! Start
+    two ! Start
+    three ! Start
+
+    system.scheduler.schedule(0 milliseconds, 500 milliseconds, supervisor, Update)
+  }
 }
