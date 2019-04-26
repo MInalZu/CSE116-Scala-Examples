@@ -30,18 +30,14 @@ class GameActor extends Actor {
     case UpdateGame =>
       game.update()
       if (game.baseHealth <= 0) {
-        game.baseHealth = 2 // make sure we don't skip a level by updating again before the load finishes
+        game.baseHealth = 2
         levelNumber = (levelNumber + 1) % 3
-        self ! LoadLevel(levelNumber)
+        loadLevel(levelNumber)
       }
     case SendGameState => sender() ! GameState(game.gameState())
     case projectile: AddProjectile =>
       val location = new PhysicsVector(projectile.x, projectile.y, projectile.z)
       val velocity = new PhysicsVector(projectile.xVelocity, projectile.yVelocity, projectile.zVelocity)
       game.addProjectile(new Projectile(location, velocity))
-    case levelMessage: LoadLevel =>
-      val level = Level(levelMessage.levelNumber)
-      game.loadLevel(level)
-      level.towerLocations.foreach(t => context.actorOf(Props(classOf[TowerActor], self, t.x, t.y)))
   }
 }
