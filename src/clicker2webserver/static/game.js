@@ -8,10 +8,6 @@ setupSocket();
 
 
 function setupSocket() {
-    socket.on('connect', function (event) {
-        socket.send('Hello Server!');
-    });
-
     socket.on('message', function (event) {
         var gameState = JSON.parse(event);
         document.getElementById("displayGold").innerHTML = gameState['gold'].toFixed(0);
