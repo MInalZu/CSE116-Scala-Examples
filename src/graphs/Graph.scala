@@ -16,8 +16,8 @@ class Graph[A] {
     adjacencyList += index2 -> (index1 :: adjacencyList(index2))
   }
 
-  def isPath(path: List[Int]): Boolean = {
-    // TODO: Determine if the input is a valid path in this graph or not
+  def areConnected(index1: Int, index2: Int): Boolean = {
+    // TODO: Does there exist a path between index1 and index2 in this graph?
     false
   }
 

@@ -5,6 +5,10 @@ class Queue[A] {
   var front: LinkedListNode[A] = null
   var back: LinkedListNode[A] = null
 
+  def empty(): Boolean = {
+    front == null
+  }
+
   def enqueue(a: A): Unit = {
     if (back == null) {
       this.back = new LinkedListNode[A](a, null)
