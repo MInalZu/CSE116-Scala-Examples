@@ -17,5 +17,9 @@ case class AddProjectile(x: Double, y:Double, z:Double, xVelocity:Double, yVeloc
 case class LoadLevel(levelNumber: Int)
 
 
-//Received by TowerActor
+// Received by TowerActor
 case object Fire
+
+
+// Received by AIController
+case object Update

@@ -4,7 +4,7 @@ import towers.model.game_objects.{Boundary, PhysicalObject}
 
 object Physics {
 
-  val EPSILON: Double = 0.000000001
+  val EPSILON: Double = 1e-3
 
   def equalDoubles(d1: Double, d2: Double): Boolean = {
     (d1 - d2).abs < EPSILON
@@ -31,7 +31,7 @@ object Physics {
 
   def slope(p1: PhysicsVector, p2: PhysicsVector): Double = {
     if(p2.x - p1.x == 0.0){
-      100000000000.0
+      1e5
 //      Double.PositiveInfinity
     }else {
       (p2.y - p1.y) / (p2.x - p1.x)

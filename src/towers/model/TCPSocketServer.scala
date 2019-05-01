@@ -6,6 +6,7 @@ import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import akka.io.{IO, Tcp}
 import akka.util.ByteString
 import play.api.libs.json.{JsValue, Json}
+import towers.model.ai.AIController
 
 
 
@@ -81,6 +82,10 @@ object TCPSocketServer {
 
     actorSystem.scheduler.schedule(16.milliseconds, 32.milliseconds, gameActor, UpdateGame)
     actorSystem.scheduler.schedule(32.milliseconds, 32.milliseconds, server, SendGameState)
+
+
+    val ai = actorSystem.actorOf(Props(classOf[AIController], gameActor))
+    actorSystem.scheduler.schedule(100.milliseconds, 100.milliseconds, ai, Update)
   }
 
 }

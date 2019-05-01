@@ -36,6 +36,8 @@ object GraphExample {
     graph.addEdge(12,10)
     graph.addEdge(10,11)
     graph.addEdge(11, 8)
+
+    BFS.bfs(graph, 0)
   }
 
 }
