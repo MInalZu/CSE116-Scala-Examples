@@ -21,4 +21,9 @@ class Graph[A] {
     false
   }
 
+  def distance(index1: Int, index2: Int): Int = {
+    // TODO: Return the distance between index1 and index2 in this graph
+    // You may assume that the two nodes are connected
+    0
+  }
 }
